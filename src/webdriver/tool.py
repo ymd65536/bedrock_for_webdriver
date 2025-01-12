@@ -9,7 +9,7 @@ def help() -> str:
 def open_window(url, browser) -> str:
     if browser == "Microsoft Edge":
         url = f"microsoft-edge:{url}"
-    elif browser == "Google Chrome":
+    elif browser.upper() == "Chrome".upper() or browser.upper() == "Google Chrome".upper():
         res = base.post(
             const.WEB_DRIVER_URL,
             '{"capabilities":{}}'
