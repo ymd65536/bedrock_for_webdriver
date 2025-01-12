@@ -12,5 +12,5 @@ if __name__ == "__main__":
     res = agent.execute(const.claude_model_ids["claude-3-haiku"])
 
     print(res)
-
-    wd_tool.open_window(res[1].get("url"), res[1].get("browser"))
+    if res:
+        wd_tool.open_window(res[1].get("url"), res[1].get("browser"))
