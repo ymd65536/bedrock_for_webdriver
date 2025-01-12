@@ -1,6 +1,6 @@
 # This is a simple function that prints the version of boto3 that is installed.
 import boto3
-import core.const as const
+import bedrock.core.const as const
 
 
 def boto3_version():
