@@ -13,4 +13,6 @@ if __name__ == "__main__":
 
     print(res)
     if res:
-        wd_tool.open_window(res[1].get("url"), res[1].get("browser"))
+        session_id = wd_tool.open_window(
+            res[1].get("url"), res[1].get("browser"))
+        print(session_id)
