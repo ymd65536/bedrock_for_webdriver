@@ -1,4 +1,8 @@
 # Description: Constants for the bedrock module.
+import os
+PORT = os.getenv('WEBDRIVER_PORT', None)
+WEB_DRIVER_URL = 'http://localhost:{0}/session'.format(PORT)
+
 region_name = {
     "apne1": "ap-northeast-1"
 }
