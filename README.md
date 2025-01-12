@@ -14,5 +14,5 @@ chromedriver --port=$WEBDRIVER_PORT
 ## Run
 
 ```bash
-python src/hello_world.py
+python bedrock_browser_agent/hello_world.py
 ```
