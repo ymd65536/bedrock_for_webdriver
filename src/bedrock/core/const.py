@@ -5,3 +5,5 @@ region_name = {
 claude_model_ids = {
     "claude-3-haiku": "anthropic.claude-3-haiku-20240307-v1:0"
 }
+
+inferenceConfig = ({"maxTokens": 1000, "temperature": 0})
