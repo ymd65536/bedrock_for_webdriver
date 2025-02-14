@@ -65,7 +65,29 @@ class agent_action:
                 }
             }
         }
-        tools = [open_window]
+        input_search_text = {
+            "toolSpec": {
+                "name": "input_search_text",
+                "description": "Google検索ボックスにテキストを入力する",
+                "inputSchema": {
+                    "json": {
+                        "type": "object",
+                        "properties": {
+                            "session_id": {
+                                "type": "string",
+                                "description": "WebDriverのセッションID"
+                            },
+                            "search_text": {
+                                "type": "string",
+                                "description": "検索したいテキスト"
+                            }
+                        },
+                        "required": ["session_id", "search_text"]
+                    }
+                }
+            }
+        }
+        tools = [open_window,input_search_text]
         return tools
 
     def execute(self, model_id: str):

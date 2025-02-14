@@ -28,3 +28,28 @@ def open_window(url, browser) -> str:
     else:
         url = f"{url}"
     return None
+
+
+def input_search_text(session_id: str, search_text: str) -> None:
+    """
+    Google検索ボックスにテキストを入力するメソッド
+    
+    Args:
+        session_id (str): WebDriverのセッションID
+        search_text (str): 検索したいテキスト
+    """    
+    # 要素を特定
+    res = base.post(
+        f"{const.WEB_DRIVER_URL}/{session_id}/element",
+        "{\"using\": \"css selector\",\"value\": \"[name=\'q\']\"}"
+    ).json()
+    
+    # 要素のIDを取得
+    element_id = res.get("value").get("element-6066-11e4-a52e-4f735466cecf")
+    
+    res = base.post(
+        f"{const.WEB_DRIVER_URL}/{session_id}/element/{element_id}/value",
+        "{\"text\":\"" + search_text + "\"}"
+    ).json()
+    
+    return None

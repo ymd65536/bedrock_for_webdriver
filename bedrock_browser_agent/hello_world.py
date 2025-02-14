@@ -10,9 +10,17 @@ if __name__ == "__main__":
     agent = bdr_tool.agent_action()
     agent.set_query("https://www.google.com/ をGoogle Chromeのウィンドウで開く")
     res = agent.execute(const.claude_model_ids["claude-3-haiku"])
+    session_id = None
 
-    print(res)
     if res:
-        session_id = wd_tool.open_window(
-            res[1].get("url"), res[1].get("browser"))
-        print(session_id)
+        if res[0] == "open_window":
+            session_id = wd_tool.open_window(
+                res[1].get("url"), res[1].get("browser"))
+    
+        agent.set_query(f"WebDriverのセッションID:{session_id},Google検索ボックスに「Amazon Bedrock」と入力する")
+        res = agent.execute(const.claude_model_ids["claude-3-haiku"])
+        print(res)
+
+        if res:
+            if res[0] == "input_search_text":
+                wd_tool.input_search_text(res[1].get("session_id"), res[1].get("search_text"))
