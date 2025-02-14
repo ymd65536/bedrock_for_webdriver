@@ -23,3 +23,9 @@ python bedrock_browser_agent/hello_world.py
 ```bash
 export AWS_PROFILE=your-profile
 ```
+
+## Model List
+
+```bash
+aws bedrock get-foundation-model --model-identifier anthropic.claude-v2:1 --query 'modelDetails.modelArn' --output text
+```
