@@ -17,3 +17,9 @@ chromedriver --port=$WEBDRIVER_PORT
 export WEBDRIVER_PORT=54088
 python bedrock_browser_agent/hello_world.py
 ```
+
+## Set AWS_PROFILE
+
+```bash
+export AWS_PROFILE=your-profile
+```
